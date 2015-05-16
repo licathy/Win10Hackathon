@@ -1,2 +1,23 @@
 ﻿body {
+    background-color: #E9CEF0;
+    font-family: Trebuchet MS;
 }
+
+.headerClass {
+    margin-top: 45px;
+    margin-left: 120px; 
+}
+
+.mainContent {
+    margin-top: 31px;
+    margin-left: 120px;
+    margin-bottom: 50px; 
+}
+
+#greetingOutput {
+    height: 20px; 
+    margin-bottom: 40px;
+}
+
+
+

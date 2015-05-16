@@ -15,6 +15,9 @@
 				// Restore application state here.
 			}
 			args.setPromise(WinJS.UI.processAll());
+
+			var searchButton = document.getElementById("searchButton");
+			searchButton.addEventListener("click", buttonClickHandler, false);
 		}
 	};
 
@@ -23,6 +26,13 @@
 		// You might use the WinJS.Application.sessionState object, which is automatically saved and restored across suspension.
 		// If you need to complete an asynchronous operation before your application is suspended, call args.setPromise().
 	};
+
+	function buttonClickHandler(eventInfo) {
+	    var address = document.getElementById("addInput").value;
+	    var output = "Parking near " + address + ":";
+	    document.getElementById("resultOutput").innerText = output;
+	}
+
 
 	app.start();
 })();
