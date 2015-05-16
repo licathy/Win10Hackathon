@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
@@ -6,16 +7,16 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="ff0b39ac-bb1e-4d92-aee2-11335e7459d1"
-    Version="1.0.0.0"
-    Publisher="CN=Microsoft" />
+    Name="dc977e9f-714c-4a79-926e-19426c131b99"
+    Publisher="CN=Microsoft"
+    Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ff0b39ac-bb1e-4d92-aee2-11335e7459d1" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="dc977e9f-714c-4a79-926e-19426c131b99" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Win10Hackathon</DisplayName>
     <PublisherDisplayName>Microsoft</PublisherDisplayName>
-    <Logo>images\storelogo.png</Logo>
+    <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -23,23 +24,20 @@
   </Dependencies>
 
   <Resources>
-    <Resource Language="x-generate" />
+    <Resource Language="x-generate"/>
   </Resources>
 
   <Applications>
-    <Application
-      Id="App"
-      StartPage="default.html">
-
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="Win10Hackathon.App">
       <uap:VisualElements
         DisplayName="Win10Hackathon"
+        Square150x150Logo="Assets\Logo.png"
+        Square44x44Logo="Assets\SmallLogo.png"
         Description="Win10Hackathon"
-        BackgroundColor="#464646"
-        Square150x150Logo="images\Logo.png"
-        Square44x44Logo="images\SmallLogo.png">
-
-        <uap:SplashScreen Image="images\splashscreen.png" />
-
+        BackgroundColor="#464646">
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
@@ -47,5 +45,4 @@
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
-
 </Package>
