@@ -39,6 +39,8 @@ namespace Win10Hackathon
 
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            Console.WriteLine("Testing");
         }
 
         /// <summary>
