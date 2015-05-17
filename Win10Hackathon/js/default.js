@@ -32,7 +32,6 @@
 			//locationButton.addEventListener("click", buttonClickHandler2, false);
 
 			
-
 			
 		}
 	};
@@ -107,7 +106,6 @@
 	    }
 	}*/
 
-	
 
 
 	app.oncheckpoint = function (args) {
@@ -116,14 +114,11 @@
 		// If you need to complete an asynchronous operation before your application is suspended, call args.setPromise().
 	};
 
-	
 
-	
 
 
 	app.start();
 
 })();
-
 
 
