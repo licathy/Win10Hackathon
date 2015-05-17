@@ -1,7 +1,6 @@
 ﻿// For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkId=232509
 
-
 (function () {
 	"use strict";
 
@@ -21,23 +20,22 @@
 			args.setPromise(WinJS.UI.processAll().
                 done(function () {
 
-			    // Add an event handler to the button.
-			    document.getElementById("startTracking").addEventListener("click",
-                    trackloc);
+                    document.getElementById("startTracking").addEventListener("click",
+            trackloc);
 
                //document.getElementById("searchButton").addEventListener("click", getLocation);
 
 			}));
 
+			
+			//var locationButton = document.getElementById("startTracking");
+			//locationButton.addEventListener("click", buttonClickHandler2, false);
 
-
-			var locationButton = document.getElementById("startTracking");
-			locationButton.addEventListener("click", buttonClickHandler2, false);
+			
 
 			
 		}
 	};
-
 
 
 	var loc = null;
@@ -50,28 +48,26 @@
 	        loc.addEventListener("positionchanged", onPositionChanged);
 	        loc.addEventListener("statuschanged", onStatusChanged);
 	        // display initial status, in case location is turned off.
-	        document.getElementById('geolocatorStatus').innerHTML =
-                getStatusString(loc.locationStatus);
 	    }
-	   
+
 	}
 
 
 	function onPositionChanged(args) {
 	    var pos = args.position;
-	    document.getElementById('latitude').innerHTML =
-            pos.coordinate.point.position.latitude;
-	    document.getElementById('longitude').innerHTML =
-            pos.coordinate.point.position.longitude;
-	    document.getElementById('geolocatorStatus').innerHTML =
-                getStatusString(loc.locationStatus);
+	    var latitude = pos.coordinate.point.position.latitude;
+	    var longitude = pos.coordinate.point.position.longitude;
+	    console.log(latitude);
+	    console.log(longitude);
+//	    var theMap = document.getElementById("Map").contentWindow.map;
+	    //document.getElementById("Map").contentWindow.changeMap();
 	}
 
     // Handle change in status to display an appropriate message.        
 	function onStatusChanged(args) {
 	    var newStatus = args.status;
-	    document.getElementById('geolocatorStatus').innerHTML =
-            getStatusString(newStatus);
+	    //document.getElementById('geolocatorStatus').innerHTML =
+            //getStatusString(newStatus);
 	}
 
 	function getStatusString(locStatus) {
@@ -111,6 +107,8 @@
 	    }
 	}
 
+	
+
 
 	app.oncheckpoint = function (args) {
 		// TODO: This application is about to be suspended. Save any state that needs to persist across suspensions here.
@@ -120,10 +118,7 @@
 
 	
 
-	function buttonClickHandler2(eventInfo) {
-        var output = "Parking near you: ";
-        document.getElementById("resultOutput").innerText = output;
-	}
+	
 
 
 	app.start();

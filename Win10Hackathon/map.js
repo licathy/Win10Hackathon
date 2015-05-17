@@ -4,12 +4,15 @@ var dataResults;
 
 function initialize() {
     map = new google.maps.Map(document.getElementById('mapdisplay'), {
-        zoom: 3,
-        center: new google.maps.LatLng(40, -187.3),
+        zoom: 10,
+        center: new google.maps.LatLng(49, -123),
         mapTypeId: google.maps.MapTypeId.TERRAIN
     });
 
     addMarkers();
+    // Add an event handler to the button.
+    
+
     var searchButton = document.getElementById("searchButton");
     searchButton.addEventListener("click", buttonClickHandler, false);
     document.getElementById("searchButton").addEventListener("click", getLocation);
@@ -24,10 +27,19 @@ function buttonClickHandler(eventInfo) {
     document.getElementById("resultOutput").innerText = output;
 }
 
+/*function buttonClickHandler2(eventInfo) {
+    var output = "Parking near you: ";
+    document.getElementById("resultOutput").innerText = output;
+}*/
+
+
 eqfeed_callback = function (results) {
     dataResults = results;
 }
 
+function changeMap() {
+    console.log("changeMap");
+}
 
 function addMarkers() {
     for (var i = 0; i < dataResults.features.length; i++) {
@@ -68,6 +80,7 @@ function getLocation() {
     })
     console.log("does get location work");
 }
+
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
