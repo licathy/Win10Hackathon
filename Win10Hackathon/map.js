@@ -76,9 +76,30 @@ function parseCoord() {
 }
 
 //returns description for current coordinate index in array
-function getCurDescr(int) {
+function getCurDescr(x, y) {
+    var j = 0;
+   // var cArray = parseCoord();
     var dArray = loadDescr();
-    return dArray[int].childNodes[0].nodeValue;
+    console.log(dArray[0].childNodes[0].nodeValue);
+    console.log(coord2DArray[0][1]);
+    for (i = 0; i < coord2DArray.length; i++) {
+        j = 0;
+        if (x === coord2DArray[i][j]) {
+            console.log(x);
+            console.log(coord2DArray[i][j + 1]);
+            if (y === coord2DArray[i][j+1]) {
+                var str = dArray[i].childNodes[0].nodeValue;
+                console.log(str);
+                return str;
+            }
+            else {
+                i++;
+            }
+        }
+        else {
+            i++;
+        }
+    }
 }
 
 //load xml file then return two arrays, coordinate and descriptions
@@ -160,12 +181,14 @@ function findNearPoints(lat1, lon1) {
        // console.log("my while loop is executing");
     }
     var marker;
-    console.log(myNearPoints[0]);
+   /* console.log(myNearPoints[0]);
     console.log(myNearPoints[1]);
     console.log(myNearPoints[2]);
     console.log(myNearPoints[3]);
     console.log(myNearPoints[4]);
-    console.log(myNearPoints[5]);
+    console.log(myNearPoints[5]);*/
+    var infowindow = new google.maps.InfoWindow();
+
     for (j = 0; j < myNearPoints.length; j++) {
         var lat = myNearPoints[j];
         var long = myNearPoints[j + 1];
@@ -177,6 +200,13 @@ function findNearPoints(lat1, lon1) {
             position: newCenter
         });
         j = j + 1;
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+                infowindow.setContent(getCurDescr(lat, long));
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+
         //map.panTo(marker.position);
        //console.log("adding markers");
     }
