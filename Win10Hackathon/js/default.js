@@ -30,8 +30,6 @@
 		// If you need to complete an asynchronous operation before your application is suspended, call args.setPromise().
 	};
 
-    
-
 	function buttonClickHandler(eventInfo) {
 	    var address = document.getElementById("addInput").value;
 	    var output = "Parking near " + address + ":";
@@ -40,7 +38,7 @@
 
 	function buttonClickHandler2(eventInfo) {
 	    var output = "Parking near you: ";
-	    document.getElementById("resultOutput").innerText = output;
+        document.getElementById("resultOutput").innerText = output;
 	}
 
 
