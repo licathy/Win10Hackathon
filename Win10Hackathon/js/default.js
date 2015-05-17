@@ -18,6 +18,9 @@
 
 			var searchButton = document.getElementById("searchButton");
 			searchButton.addEventListener("click", buttonClickHandler, false);
+
+			var locationButton = document.getElementById("locationButton");
+			locationButton.addEventListener("click", buttonClickHandler2, false);
 		}
 	};
 
@@ -32,6 +35,11 @@
 	function buttonClickHandler(eventInfo) {
 	    var address = document.getElementById("addInput").value;
 	    var output = "Parking near " + address + ":";
+	    document.getElementById("resultOutput").innerText = output;
+	}
+
+	function buttonClickHandler2(eventInfo) {
+	    var output = "Parking near you: ";
 	    document.getElementById("resultOutput").innerText = output;
 	}
 
