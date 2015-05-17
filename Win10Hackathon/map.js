@@ -93,17 +93,26 @@ function getLocation() {
     var address = document.getElementById("addInput").value;
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            document.getElementById('latitude').innerHTML = results[0].geometry.location.lat();
-            document.getElementById('longitude').innerHTML = results[0].geometry.location.lng();
-            document.getElementById('geolocatorStatus').innerHTML = "Location found."
+            var lat = results[0].geometry.location.lat();
+            var lng = results[0].geometry.location.lng();
+            zoomMap(lat, lng);
         }
         else {
             alert("Request failed.")
         }
     })
-    console.log("does get location work");
+    
 }
 
-
+function zoomMap(lat, long) {
+    var newCenter = new google.maps.LatLng(lat, long)
+    map.setCenter(newCenter);
+    var marker = new google.maps.Marker({
+        map: map,
+        position: newCenter
+    });
+    map.setZoom(14);
+    map.panTo(marker.position);
+}
 
 google.maps.event.addDomListener(window, 'load', initialize);
