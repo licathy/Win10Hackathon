@@ -40,7 +40,33 @@
 	    var output = "Parking near you: ";
         document.getElementById("resultOutput").innerText = output;
 	}
+	console.log('b4 geo');
 
+	var geocoder;
+	var map;
+	function initialize() {
+	    console.log('in initialize 1');
+	    geocoder = new google.maps.Geocoder();
+	    var latlng = new google.maps.LatLng(49, -123);
+	    var mapOption = {
+	        zoom: 0,
+	        center: latlng
+	    }
+	    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	    console.log('in initialize');
+	}
+
+
+	console.log('after geo');
+
+	function testing() {
+	    console.log("Hello");
+
+	    window.alert("sometext");
+
+	    console.log("Hello2");
+
+	}
 
 	app.start();
 })();
