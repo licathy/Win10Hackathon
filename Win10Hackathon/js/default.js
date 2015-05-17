@@ -1,10 +1,14 @@
 ﻿// For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkId=232509
+
+
 (function () {
 	"use strict";
 
 	var app = WinJS.Application;
 	var activation = Windows.ApplicationModel.Activation;
+
+
 
 	app.onactivated = function (args) {
 		if (args.detail.kind === activation.ActivationKind.launch) {
@@ -21,10 +25,11 @@
 			    document.getElementById("startTracking").addEventListener("click",
                     trackloc);
 
+               //document.getElementById("searchButton").addEventListener("click", getLocation);
+
 			}));
 
-			var searchButton = document.getElementById("searchButton");
-			searchButton.addEventListener("click", buttonClickHandler, false);
+
 
 			var locationButton = document.getElementById("startTracking");
 			locationButton.addEventListener("click", buttonClickHandler2, false);
@@ -32,6 +37,7 @@
 			
 		}
 	};
+
 
 
 	var loc = null;
@@ -57,8 +63,6 @@
             pos.coordinate.point.position.latitude;
 	    document.getElementById('longitude').innerHTML =
             pos.coordinate.point.position.longitude;
-	    document.getElementById('accuracy').innerHTML =
-            pos.coordinate.accuracy;
 	    document.getElementById('geolocatorStatus').innerHTML =
                 getStatusString(loc.locationStatus);
 	}
@@ -114,44 +118,17 @@
 		// If you need to complete an asynchronous operation before your application is suspended, call args.setPromise().
 	};
 
-	function buttonClickHandler(eventInfo) {
-	    var address = document.getElementById("addInput").value;
-	    var output = "Parking near " + address + ":";
-	    document.getElementById("resultOutput").innerText = output;
-	}
+	
 
 	function buttonClickHandler2(eventInfo) {
-
-	    var output = "Parking near you: ";
+        var output = "Parking near you: ";
         document.getElementById("resultOutput").innerText = output;
 	}
-	console.log('b4 geo');
 
-	var geocoder;
-	var map;
-	function initialize() {
-	    console.log('in initialize 1');
-	    geocoder = new google.maps.Geocoder();
-	    var latlng = new google.maps.LatLng(49, -123);
-	    var mapOption = {
-	        zoom: 0,
-	        center: latlng
-	    }
-	    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-	    console.log('in initialize');
-	}
-
-
-	console.log('after geo');
-
-	function testing() {
-	    console.log("Hello");
-
-	    window.alert("sometext");
-
-	    console.log("Hello2");
-
-	}
 
 	app.start();
+
 })();
+
+
+

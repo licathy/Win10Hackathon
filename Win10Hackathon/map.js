@@ -10,6 +10,18 @@ function initialize() {
     });
 
     addMarkers();
+    var searchButton = document.getElementById("searchButton");
+    searchButton.addEventListener("click", buttonClickHandler, false);
+    document.getElementById("searchButton").addEventListener("click", getLocation);
+
+
+}
+
+
+function buttonClickHandler(eventInfo) {
+    var address = document.getElementById("addInput").value;
+    var output = "Parking near " + address + ":";
+    document.getElementById("resultOutput").innerText = output;
 }
 
 eqfeed_callback = function (results) {
@@ -40,5 +52,22 @@ function getCircle(magnitude) {
         strokeWeight: .5
     };
 }
+
+function getLocation() {
+    var geocoder = new google.maps.Geocoder();
+    var address = document.getElementById("addInput").value;
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            document.getElementById('latitude').innerHTML = results[0].geometry.location.lat();
+            document.getElementById('longitude').innerHTML = results[0].geometry.location.lng();
+            document.getElementById('geolocatorStatus').innerHTML = "Location found."
+        }
+        else {
+            alert("Request failed.")
+        }
+    })
+    console.log("does get location work");
+}
+
 
 google.maps.event.addDomListener(window, 'load', initialize);

@@ -10,6 +10,7 @@
 
     <!-- mapframe references -->
     <link href="/map.css" rel="stylesheet" />
+    <link href="/css/default.css" rel="stylesheet" />
     <script src="/map.js"></script>
 
     <!-- USGS URL data source -->
@@ -18,6 +19,13 @@
 </head>
 
 <body>
+    
+    Latitude: <span id="latitude"></span><br />
+    Longitude:  <span id="longitude"></span><br />
+    Location Status: <span id="geolocatorStatus"></span><br />
+    <input id="addInput" type="text" />
+    <button id="searchButton">Search!</button> 
+    <p><div id="resultOutput"></div></p>
         <div id="mapdisplay"></div>
 </body>
 </html>
