@@ -5,54 +5,14 @@
     <title>Win10Hackathon</title>
 
     <!-- WinJS references -->
-    <!-- To get the latest version of WinJS, go to: http://go.microsoft.com/fwlink/?LinkId=5332450 -->
+    <!-- To get the latest version of WinJS, go to: http://go.microsoft.com/fwlink/?LinkId=5332450-->
     <link href="WinJS/css/ui-light.css" rel="stylesheet" />
     <script src="WinJS/js/WinJS.js"></script>
 
     <!-- Win10Hackathon references -->
     <link href="/css/default.css" rel="stylesheet" />
     <script src="/js/default.js"></script>
-    
-    <!-- Google Maps -->
-
-
-    <!--<script>
-        function initialize() {
-          var mapOptions = {
-            zoom: 8,
-            center: new google.maps.LatLng(-49, 123)
-          };
-
-          var map = new google.maps.Map(document.getElementById('map-canvas'),
-              mapOptions);
-        }
-
-        function loadScript() {
-          var script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBa5w-X2MO5Ll3XuNJtSZhjoGpmZwpVrF4' +
-              '&signed_in=true&callback=initialize';
-          document.body.appendChild(script);
-        }
-
-        window.onload = loadScript;
-
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa5w-X2MO5Ll3XuNJtSZhjoGpmZwpVrF4"
-            type="text/javascript"></script>
-
-    <script type="text/javascript">
-      function initialize() {
-        var mapOptions = {
-          center: { lat: -34.397, lng: 150.644},
-          zoom: 8
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>-->
+   
 
 </head>
 <body>
@@ -60,10 +20,14 @@
     <p>Enter your destination address or use your current location to find nearby parking information. </p>
     <input id="addInput" type="text" />
     <button id="searchButton">Search!</button>
-    <p><button class ="link" id="locationButton">Find my location!</button></p>
+    <p><button class ="link" id="startTracking" onclick="alertMe()">Find my location!</button></p>
+    
+    Latitude: <span id="latitude"></span><br />
+    Longitude:  <span id="longitude"></span><br />
+    Accuracy (in meters): <span id="accuracy"></span><br />
+    Location Status: <span id="geolocatorStatus"></span><br />
+
     <p><div id="resultOutput"></div></p>
 
-
-    <div id="map-canvas"></div>
 </body>
 </html>
