@@ -27,6 +27,8 @@
 		// If you need to complete an asynchronous operation before your application is suspended, call args.setPromise().
 	};
 
+    
+
 	function buttonClickHandler(eventInfo) {
 	    var address = document.getElementById("addInput").value;
 	    var output = "Parking near " + address + ":";
