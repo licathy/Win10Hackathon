@@ -6,7 +6,7 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('mapdisplay'), {
         zoom: 10,
         center: new google.maps.LatLng(49, -123),
-        mapTypeId: google.maps.MapTypeId.TERRAIN
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
     addMarkers();
@@ -17,9 +17,23 @@ function initialize() {
     searchButton.addEventListener("click", buttonClickHandler, false);
     document.getElementById("searchButton").addEventListener("click", getLocation);
 
+    document.getElementById("startTracking").addEventListener("click",
+            defaultZoomMap);
+
 
 }
 
+function defaultZoomMap() {
+    sleep(4000);
+    var newCenter = new google.maps.LatLng(49.276842034114196, -122.9143051590263)
+    map.setCenter(newCenter);
+    var marker = new google.maps.Marker({
+        map: map,
+        position: newCenter
+    });
+    map.setZoom(14);
+    map.panTo(marker.position);
+}
 
 function buttonClickHandler(eventInfo) {
     var address = document.getElementById("addInput").value;
@@ -51,6 +65,15 @@ function addMarkers() {
             map: map
             //icon: getCircle(earthquake.properties.mag)
         });
+    }
+}
+
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds) {
+            break;
+        }
     }
 }
 

@@ -20,8 +20,8 @@
 			args.setPromise(WinJS.UI.processAll().
                 done(function () {
 
-                    document.getElementById("startTracking").addEventListener("click",
-            trackloc);
+                    //document.getElementById("startTracking").addEventListener("click",
+            //trackloc);
 
                //document.getElementById("searchButton").addEventListener("click", getLocation);
 
@@ -38,7 +38,7 @@
 	};
 
 
-	var loc = null;
+	/*var loc = null;
 
 	function trackloc() {
 	    if (loc == null) {
@@ -105,7 +105,7 @@
 	        default:
 	            return "Unknown status.";
 	    }
-	}
+	}*/
 
 	
 
