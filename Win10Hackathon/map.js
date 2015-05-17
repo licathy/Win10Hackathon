@@ -1,6 +1,6 @@
 ﻿var map;
 var dataResults;
-
+var kmlLayer;
 
 function initialize() {
     map = new google.maps.Map(document.getElementById('mapdisplay'), {
@@ -9,9 +9,27 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
-    addMarkers();
+    //addMarkers();
     // Add an event handler to the button.
     
+    console.log("here1");
+    kmlLayer = new google.maps.KmlLayer({
+        url: 'https://dl.dropboxusercontent.com/u/3137747/tester.kml',
+    });
+    console.log("here2");
+    google.maps.event.addListener(kmlLayer, 'status_changed', function () {
+        console.log("listender added");
+        if (kmlLayer.getStatus() == google.maps.KmlLayerStatus.OK) {
+            kmlLayer.setMap(map);
+            console.log("success");
+        }
+        else {
+            // Failure
+            console.log("fail");
+        }
+    });
+    console.log("here3");
+
 
     var searchButton = document.getElementById("searchButton");
     searchButton.addEventListener("click", buttonClickHandler, false);
@@ -116,3 +134,5 @@ function zoomMap(lat, long) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+
