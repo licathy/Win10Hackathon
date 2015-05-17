@@ -47,6 +47,7 @@
   <Capabilities>
     <Capability Name="internetClient" />
     <DeviceCapability Name ="location"/>
+    <DeviceCapability Name ="microphone"/>
   </Capabilities>
 
 </Package>
